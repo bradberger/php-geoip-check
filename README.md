@@ -8,7 +8,7 @@ for more details about the API.
 ## Installation
 
 The MaxMind API was installed here via Composer, and is included in this package.
-If you're already using composer, change the require line in geoip-functions.php
+If you're already using composer, change the require line in example.php
 to match the location of your Composer autoload file.
 
 For example, change:
@@ -20,29 +20,8 @@ To:
     require_once '/path/to/composer/autoload.php';
 
 ## Usage
-Currently, there is only one function, geoIpCountryCheckPrint().
 
-    geoIpCountryCheckPrint($country, $printIfTrue, $printIfFalse)
-
-The first argument is the iso 3166 country code for the MaxMind GeoIP
-database. See [https://dev.maxmind.com/geoip/legacy/codes/iso3166/](//dev.maxmind.com/geoip/legacy/codes/iso3166/)
-for the list of codes. This can be a string or an array of strings. For example, the following are valid:
-
-    // Country as a string.
-    $country = 'US';
-    // Country as a array.
-    $country = array('US', 'GB', 'AU');
-
-    geoIpCountryCheckPrint($country, '...', '...');
-
-This function prints the second argument, $printIfTrue, if the country of the
-request matched the first argument, $country. If the country does not match,
-it prints the third argument, $printIfFalse.
-
-For example, if you wanted to print "Zdravo" to Croatian users, and "Hello" to all
-other users, you could use the following:
-
-    geoIpCountryCheckPrint('HR', 'Zdravo', 'Hello');
+Coming soon. In the meantime, see the example.php file. It should be pretty straight forward.
 
 ## Full Example
 

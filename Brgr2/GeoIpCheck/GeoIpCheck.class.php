@@ -20,7 +20,6 @@ class GeoIpCheck {
     var $ifFalse = '';
     var $lastResult;
     var $requestIp;
-    var $region_names;
     var $files_to_try = array(
         '/usr/local/share/GeoIP/GeoIP.dat',
         '/usr/local/share/GeoIP/GeoLiteCity.dat',
@@ -31,15 +30,6 @@ class GeoIpCheck {
     );
 
     function __construct($dbFile='') {
-
-        // Need this.
-        global $GEOIP_REGION_NAME;
-        if(! empty($GEOIP_REGION_NAME)) {
-            $this->region_names = &$GEOIP_REGION_NAME;
-        } else {
-            trigger_error(sprintf('%s::%s Error: Geoip region info not available. Make sure the
-            geo-api-php/src/geoipregionvars.php file is loaded.', __CLASS__, __METHOD__), E_USER_WARNING);
-        }
 
         $this->files_to_try[] = realpath(__DIR__) . PATH_SEPARATOR . 'GeoIP.dat';
         $this->files_to_try[] = realpath(__DIR__) . PATH_SEPARATOR . 'GeoLiteCity.dat';

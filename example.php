@@ -1,7 +1,6 @@
 <?php
 
 // Include the functions and the MaxMind GeoIP library first.
-require_once __DIR__ . DIRECTORY_SEPARATOR . 'vendor/geoip/geoip/geoipregionvars.php';
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'vendor/autoload.php';
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'Brgr2/GeoIpCheck/GeoIpCheck.class.php';
 

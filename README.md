@@ -9,6 +9,13 @@ for more details about the API.
 
 You must have Composer installed and/or downloaded. Visit [getcomposer.org](http://getcomposer.org) for more info.
 
+You must also install the GeoIP City database, since we can't package it with the code due to license restrictions.
+If you're using Ubuntu, it's as simple as:
+
+    sudo apt-get install geoip-database-contrib
+
+Have instructions for another system? Create a pull request and we'll merge it.
+
 PHP 5.3 or newer is also required, primarily due to the reliance on anonymous functions.
 
 ## Installation
@@ -36,6 +43,20 @@ Make sure your php includes the file:
 Usage is very simple.
 
     $geoIp = new GeoIpCheck();
+
+If your using a MaxMind database which is not in one of the following locations, you'll need to enter the path to the
+database when initializing the object. The script automatically looks for the file in these locations:
+
+    /usr/local/share/GeoIP/GeoIP.dat
+    /usr/local/share/GeoIP/GeoLiteCity.dat
+    /usr/local/share/GeoIP/GeoIPCity.dat
+    /usr/share/GeoIP/GeoIP.dat
+    /usr/share/GeoIP/GeoLiteCity.dat
+    /usr/share/GeoIP/GeoIPCity.dat
+
+If you're using a custom location, simply specify it like this:
+
+    $geoIp = new GeoIpCheck('/path/to/geoip/database.dat');
 
 If you want to override the IP address (i.e. not use the IP of the request, simple change the first line to:
 
@@ -87,7 +108,9 @@ in this repository, so you can run it using the built-in PHP web-server.
 
 ## To Do
 
-Add basic unit testing.
+- Add basic unit testing.
+- Cache results in memory (memcached, apc, etc.), if available.
+- Cache entire database in memory, if available.
 
 ## Suggestions
 

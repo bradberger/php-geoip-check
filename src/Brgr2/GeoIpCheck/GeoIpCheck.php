@@ -1,10 +1,7 @@
 <?php
 /**
- * This script uses the MaxMind GeoIP API for PHP to display or hide content based
- * on location of the request. Built to use GeoIP Country database.
- *
- * Requires database to be installed. If you're using Ubuntu, it's as simple as:
- *      sudo apt-get install geoip-database-contrib
+ * This script uses the MaxMind GeoIP API for PHP to execute callback based on whether an IP address matches or
+ * doesn't match the criteria displayed. Built to use GeoIP City database.
  *
  * @author Brad Berger <brad@bradb.net>
  * @see    https://github.com/bradberger/php-geoip-script/
@@ -52,8 +49,7 @@ class GeoIpCheck {
                     __CLASS__, __METHOD__, $this->dbFile, E_USER_ERROR)
             );
         } else if(! function_exists('geoip_country_code_by_addr')) {
-            trigger_error(sprintf('%s::%s Error: Maxmind Geoip-api-php is not loaded. See https://github
-            .com/maxmind/geoip-api-php for downloads and instructions.', __CLASS__, __METHOD__), E_USER_ERROR);
+            trigger_error(sprintf('%s::%s Error: Maxmind Geoip-api-php is not loaded. See https://github.com/maxmind/geoip-api-php for downloads and instructions.', __CLASS__, __METHOD__), E_USER_ERROR);
         } else {
             $this->db = geoip_open($this->dbFile, GEOIP_STANDARD);
         }

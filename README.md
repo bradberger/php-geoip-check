@@ -62,7 +62,7 @@ or an array. All these would be valid.
     $type = 'Boston,Cambridge';
     $type = array('Boston', 'Cambridge');
 
-The whole example, if you wanted to check if the current vistor was from Boston or Cambridge:
+The whole example, if you wanted to check if the current visitor was from Boston or Cambridge:
 
     $geoIp = new GeoIpCheck();
     $geoIp->check(
@@ -72,7 +72,7 @@ The whole example, if you wanted to check if the current vistor was from Boston 
         function() { echo "You are from Boston or Cambridge"; }
     );
 
-If the details of the last request are stored in the GeoIpCheck::$lastResult variable. So anywhere in your script,
+If the details of the last request are stored in the `GeoIpCheck::$lastResult` variable. So anywhere in your script,
 you could access data such as:
 
     $geoIp->lastRequest->city;
@@ -82,7 +82,7 @@ you could access data such as:
 
 ## Full Example
 
-You can see an example in the example/index.php file. It doesn't have any external requirements other than the code
+You can see an example in the `example/index.php` file. It doesn't have any external requirements other than the code
 in this repository, so you can run it using the built-in PHP web-server.
 
 ## To Do

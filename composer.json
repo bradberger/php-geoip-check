@@ -1,5 +1,24 @@
 {
+  "name": "brgr2/geoipcheck",
+  "authors": [
+    {
+      "name": "Brad Berger",
+      "email": "brad@brgr2.com",
+      "homepage": "http://www.brgr2.com/",
+      "role": "Developer"
+    }
+  ],
   "require": {
-    "geoip/geoip": "~1.13"
+    "php": ">=5.3.0",
+    "geoip/geoip": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "*"
+  },
+  "autoload": {
+    "psr-0": {
+      "Brgr2\\GeoIpCheck": "src/"
+    }
   }
+
 }

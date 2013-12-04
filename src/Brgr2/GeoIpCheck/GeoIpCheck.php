@@ -10,7 +10,8 @@
  * @see    https://github.com/bradberger/php-geoip-script/
  * @see    https://github.com/maxmind/geoip-api-php
  */
-namespace Brgr2;
+namespace Brgr2\GeoIpCheck;
+
 class GeoIpCheck {
 
     var $dbFile;
@@ -26,24 +27,21 @@ class GeoIpCheck {
         '/usr/local/share/GeoIP/GeoIPCity.dat',
         '/usr/share/GeoIP/GeoIP.dat',
         '/usr/share/GeoIP/GeoLiteCity.dat',
-        '/usr/share/GeoIP/GeoIPCity.dat',
+        '/usr/share/GeoIP/GeoIPCity.dat'
     );
 
     function __construct($dbFile='') {
 
-        $this->files_to_try[] = realpath(__DIR__) . PATH_SEPARATOR . 'GeoIP.dat';
-        $this->files_to_try[] = realpath(__DIR__) . PATH_SEPARATOR . 'GeoLiteCity.dat';
-        $this->files_to_try[] = realpath(__DIR__) . PATH_SEPARATOR . 'GeoIPCity.dat';
         if(! empty($dbFile)) {
             $this->files_to_try[] = $dbFile;
         }
 
         // Loop through all possible locations of the Mindmax file and stop on first success.
         foreach(array_reverse($this->files_to_try) as $file) {
-            if(file_exists($file) && is_readable($file)) {
+            if(@file_exists($file) && @is_readable($file)) {
                 $this->dbFile = $file;
                 break;
-            }
+            } else { echo $file . '<br>'; }
         }
 
         // Try to load the database.
@@ -55,7 +53,7 @@ class GeoIpCheck {
             );
         } else if(! function_exists('geoip_country_code_by_addr')) {
             trigger_error(sprintf('%s::%s Error: Maxmind Geoip-api-php is not loaded. See https://github
-            .com/maxmind/geoip-api-php for downloads and instructions.'), E_USER_ERROR);
+            .com/maxmind/geoip-api-php for downloads and instructions.', __CLASS__, __METHOD__), E_USER_ERROR);
         } else {
             $this->db = geoip_open($this->dbFile, GEOIP_STANDARD);
         }
@@ -66,13 +64,15 @@ class GeoIpCheck {
     }
 
     function overrideRequestIp($ip) {
-        $this->requestIp = $ip;
+        if(! empty($ip)) {
+            $this->requestIp = $ip;
+        }
     }
 
     function getRequestIp()
     {
         // Return override if applicable.
-        if(!empty($this->requestIp)) {
+        if(! empty($this->requestIp)) {
             return $this->requestIp;
         }
 
@@ -109,9 +109,18 @@ class GeoIpCheck {
         if(empty($type)) {
             $type = $this->type;
         }
+
         if(empty($area)) {
-            trigger_error(sprintf('%s::%s Error: Area can not be empty. Must be a string', __CLASS__, __METHOD__));
+            trigger_error(sprintf('%s::%s Error: Area can not be empty. Must be a string or an array.', __CLASS__, __METHOD__));
+        } else if(is_string($area)) {
+            $area = explode(',', $area);
+        } else if(! is_array($area)) {
+            trigger_error(sprintf('%s::%s Error: Area can not be type of %s. Must be a string or an array.', gettype($area), __CLASS__, __METHOD__));
+            return false;
         }
+
+        $result = false;
+        $area = array_filter($area);
 
         // Get the detailed info.
         $requestDetails = geoip_record_by_addr($this->db, $this->requestIp);
@@ -119,8 +128,6 @@ class GeoIpCheck {
         // Store the last result for fun.
         $this->lastResult = $requestDetails;
 
-        $result = false;
-        $area = array_filter(explode(',', $area));
         foreach ($area as &$thisArea) {
             $thisArea = trim($thisArea);
             if (strtoupper($thisArea) === strtoupper($requestDetails->{$type})) {

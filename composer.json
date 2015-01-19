@@ -1,5 +1,11 @@
 {
   "name": "bitolaco/geoipcheck",
+  "license": "MPL",
+  "support": {
+    "email": "inbox@bitola.co",
+    "issues:": "https://github.com/BitolaCo/php-geoip-check/issues",
+    "source": "https://github.com/BitolaCo/php-geoip-check/tree/master"
+  }
   "authors": [
     {
       "name": "Brad Berger",
@@ -10,7 +16,7 @@
   ],
   "require": {
     "php": ">=5.3.0",
-    "geoip/geoip": "*"
+    "ext-geoip": "~1.1"
   },
   "require-dev": {
     "phpunit/phpunit": "*"

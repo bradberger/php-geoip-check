@@ -10,9 +10,10 @@ for more details about the API.
 You must have Composer installed and/or downloaded. Visit [getcomposer.org](http://getcomposer.org) for more info.
 
 You must also install the GeoIP City database, since we can't package it with the code due to license restrictions.
+Your Linux distro will likely have packages for the PHP geo-ip extension.
 If you're using Ubuntu, it's as simple as:
 
-    sudo apt-get install geoip-database-contrib
+    sudo apt-get install php5-geoip
 
 Have instructions for another system? Create a pull request and we'll merge it.
 
@@ -28,9 +29,7 @@ Make sure it's a requirement in your composer.json file.
 
     {
       "require": {
-        "php": ">=5.3.0",
-        "geoip/geoip": "*",
-        "brgr2/geoipcheck": "*"
+        "bitolaco/geoipcheck": "~0.1"
       }
     }
 

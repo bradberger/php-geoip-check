@@ -7,7 +7,7 @@
  * @see    https://github.com/bradberger/php-geoip-script/
  * @see    https://github.com/maxmind/geoip-api-php
  */
-namespace Brgr2\GeoIpCheck;
+namespace BitolaCo\GeoIpCheck;
 
 class GeoIpCheck {
 
@@ -38,7 +38,7 @@ class GeoIpCheck {
             if(@file_exists($file) && @is_readable($file)) {
                 $this->dbFile = $file;
                 break;
-            } else { echo $file . '<br>'; }
+            }
         }
 
         // Try to load the database.

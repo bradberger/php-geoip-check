@@ -1,4 +1,4 @@
-<?php namespace Brgr2\GeoIpCheck;
+<?php namespace BitolaCo\GeoIpCheck;
 
 // Include the functions and the MaxMind GeoIP library first.
 
@@ -14,8 +14,8 @@ $geoIp->overrideRequestIp($ip);
 <html>
 <head>
     <title>GeoIP PHP Check Example</title>
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootswatch/3.0.2/yeti/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/fontawesome/4.2.0/css/font-awesome.min.css ">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/bootswatch/3.3.1.2/yeti/bootstrap.min.css ">
 </head>
 <body style="padding-top: 6em;">
 <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
@@ -27,17 +27,22 @@ $geoIp->overrideRequestIp($ip);
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#"><i class="fa fa-compass"></i> GeoIP PHP Check</a>
+        <a class="navbar-brand" href="#"><i class="fa fa-map-marker"></i> GeoIP PHP Check</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-            <li class="active"><a href="<?php echo $_SERVER['PHP_SELF'] ?>"><i class="fa fa-home"></i></a>
-            <li>
-                <a href="https://github.com/bradberger/php-geoip-check/"><i class="fa fa-github"></i>
-                    Project on GitHub
+            <li class="active">
+                <a href="<?php echo $_SERVER['PHP_SELF'] ?>">
+                    <i class="fa fa-home"></i>
                 </a>
+            </li>
+            <li>
+                <a href="https://github.com/BitolaCo/php-geoip-check">
+                    <i class="fa fa-github"></i>
+                </a>
+            </li>
         </ul>
         <form class="navbar-form navbar-right"
               data-role="search"
@@ -89,7 +94,7 @@ $geoIp->overrideRequestIp($ip);
               }
     );
     ?>
-    <h2>Details</h2>
+    <h2>Details for <?php echo $ip; ?></h2>
 
     <div class="row">
         <?php
@@ -109,56 +114,12 @@ $geoIp->overrideRequestIp($ip);
     <?php } ?>
     <hr>
     <p>
-        &copy; 2013 <a href="http://www.bradb.net">Brad Berger</a> and <a href="http://www.brgr2.com">BRGR2</a>.
-               Released under the <a href="#" data-toggle="modal" data-target="#licenseModal">MIT license</a>.
-
-                <span class="pull-right">Speical thanks to <a href="//maxmind.com">Maxmind</a>,
-                    <a href="//getbootstrap.com">Twitter Bootstrap</a> and <a href="http://fontawesome.io/">Font
-                                                                                                            Awesome</a>
-                </span>
+        &copy; 2015 <a href="http://www.bradb.net">Brad Berger</a>
+        and <a href="https://bitola.co">Bitola Software Co.</a>.
+        Released under the <a href="https://www.mozilla.org/MPL/">MPL license</a>.
     </p>
 </div>
 
-<div id="licenseModal" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">The MIT License (MIT)</h4>
-            </div>
-            <div class="modal-body">
-
-                <p class="lead">Copyright (c) 2013 Brad Berger, BRGR2
-
-                <p>Permission is hereby granted, free of charge, to any person obtaining a copy
-                   of this software and associated documentation files (the "Software"), to deal
-                   in the Software without restriction, including without limitation the rights
-                   to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-                   copies of the Software, and to permit persons to whom the Software is
-                   furnished to do so, subject to the following conditions:
-
-                <p>The above copyright notice and this permission notice shall be included in
-                   all copies or substantial portions of the Software.
-
-                <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-                   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-                   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-                   AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-                   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-                   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-                   THE SOFTWARE.
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-</div>
-<!-- /.modal -->
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+<script src="//cdn.jsdelivr.net/g/jquery@2,bootstrap@3"></script>
 </body>
 </html>

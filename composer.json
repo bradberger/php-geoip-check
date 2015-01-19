@@ -1,10 +1,10 @@
 {
-  "name": "brgr2/geoipcheck",
+  "name": "bitolaco/geoipcheck",
   "authors": [
     {
       "name": "Brad Berger",
-      "email": "brad@brgr2.com",
-      "homepage": "http://www.brgr2.com/",
+      "email": "brad@bradb.net",
+      "homepage": "https://bradb.net",
       "role": "Developer"
     }
   ],
@@ -17,7 +17,7 @@
   },
   "autoload": {
     "psr-0": {
-      "Brgr2\\GeoIpCheck": "src/"
+      "": "src/"
     }
   }
 

@@ -1,3 +1,8 @@
+[![Latest Stable Version](https://poser.pugx.org/bitolaco/geoipcheck/v/stable)](https://packagist.org/packages/bitolaco/geoipcheck) 
+[![Total Downloads](https://poser.pugx.org/bitolaco/geoipcheck/downloads)](https://packagist.org/packages/bitolaco/geoipcheck) 
+[![Latest Unstable Version](https://poser.pugx.org/bitolaco/geoipcheck/v/unstable)](https://packagist.org/packages/bitolaco/geoipcheck) 
+[![License](https://poser.pugx.org/bitolaco/geoipcheck/license)](https://packagist.org/packages/bitolaco/geoipcheck)
+
 This is simple function which prints different strings depending on the
 location of the HTTP request.
 
